@@ -10,53 +10,62 @@ import java.util.ArrayList;
 public class Main {
     public class Team{
 
-        // Zebrane dane podczas symulacji
 
-
+        // Variables
         String name;
         Integer wins;
         Integer losses;
         Integer gamesPlayed;
         Double PointsScoredTotal;
-
         Double PointsLostTotal;
         Double PointsScoredPerGame;
         Double PointsLostPerGame;
         Double NetDifference;
-
         Double OffensiveRating;
-
         Double DeffensiveRating;
         HashMap<String, Player> players = new HashMap<String, Player>();
 
 
-        // Wyliczone na podstawie statystyk zawodnikow
+        // Methods used to calculate offensive and defensive potential of certain teams
+
         public Double calculateOffensiveRating(){
-            Double ortg=0.1;
+            Double ortg=0.1; //placeholder value
             return ortg;
         }
-
         public Double calculateDefensiveRating(){
-            Double drtg=0.1;
+            Double drtg=0.1; //placeholder value
             return drtg;
         }
 
+        // Setters
+
+        public void setName(String name){
+            this.name = name;
+        }
+
+        public void setWins(int wins){
+            this.wins = wins;
+        }
+
+        public void setLosses(int Losses){
+            this.losses = losses;
+        }
+        // Getters
         public String getName() {
-            return name;
+            return this.name;
         }
-
-
         public int getWins() {
-            return wins;
+            return this.wins;
+        }
+        public int getLosses() {
+            return this.losses;
         }
 
+
+        // Incrementers
 
         public void addWin() {
             wins = wins + 1;
-        }
-
-        public int getLosses() {
-            return losses;
         }
 
         public void addLoss() {
@@ -71,6 +80,8 @@ public class Main {
     }
 
     public class Player{
+
+        // Variables
         String name;
         String lastName;
         Double points;
@@ -82,42 +93,96 @@ public class Main {
 
 
 
-        // konstruktory
+        // Constructors
 
-        public Player(String name, String lastName, Double points, Double assists, Double blocks, Double steals){
-
+        public Player(){
+            this.name = "";
+            this.lastName = "";
+            this.points = -1.0;
+            this.assists = -1.0;
+            this.blocks = -1.0;
+            this.steals = -1.0;
+            this.xFactor = -1.0;
+            this.role = "";
+        }
+        public Player(String name, String lastName, Double points, Double assists, Double blocks, Double steals, Double xFactor, String role){
+            this.name = name;
+            this.lastName = lastName;
+            this.points = points;
+            this.assists = assists;
+            this.blocks = blocks;
+            this.steals = steals;
+            this.xFactor = xFactor;
+            this.role = role;
         }
 
 
+
+        // Setters
+
+        public void setName(String name){
+            this.name = name;
+        }
+
+        public void setLastName(String lastName){
+            this.lastName = lastName;
+        }
+
+        public void setRole(String role){
+            this.role = role;
+        }
+
+        public void setPoints(Double points){
+            this.points = points;
+        }
+
+        public void setAssists(Double assists){
+            this.assists = assists;
+        }
+
+        public void setBlocks(Double blocks){
+            this.blocks = blocks;
+        }
+
+        public void setSteals(Double steals){
+            this.steals = steals;
+        }
+
+        public void setXfactor(Double xFactor){
+            this.xFactor = xFactor;
+        }
+
+        // Getters
+
         public String getName(){
-            return name;
+            return this.name;
         }
 
         public String getLastName(){
-            return lastName;
+            return this.lastName;
         }
         public String getRole(){
-            return role;
+            return this.role;
         }
 
         public Double getPoints(){
-            return points;
+            return this.points;
         }
 
         public Double getAssists(){
-            return assists;
+            return this.assists;
         }
 
         public Double getBlocks(){
-            return blocks;
+            return this.blocks;
         }
 
         public Double getSteals(){
-            return steals;
+            return this.steals;
         }
 
         public Double getxFactor(){
-            return xFactor;
+            return this.xFactor;
         }
 
 
@@ -127,9 +192,10 @@ public class Main {
 
     public class Tournament{
 
+        // Teams draw
         public ArrayList<Team> Draw(){
             ArrayList<Team> draw = new ArrayList<Team>();
-            // Losowanie kolejnosci kto z kim gra
+
             return draw;
         }
 
@@ -139,13 +205,19 @@ public class Main {
     public class GameSimulator{
 
         // Wyliczone od 0.9 do 1.1 * offensive rating i defensive rating
-        Double FirstTeamRandomMultiplier;
-        Double SecondTeamRandomMultiplier;
+        public Double FirstTeamRandomMultiplier(){
+            Double multiplier = -1.0;
+            return multiplier;
+        };
+        Double SecondTeamRandomMultiplier(){
+            Double multiplier = -1.0;
+            return multiplier;
+        };
 
 
-        public boolean CalculateWinner(Team One, Team Two){
+        public boolean getWinner(Team One, Team Two){
             boolean winner=true;
-            // if ktory zdeterminuje kto wygral
+            // Conditional
             return winner;
         }
 
@@ -153,8 +225,27 @@ public class Main {
 
     }
 
+    public class StatsReader{
+            public void Read(){
 
+            }
+    }
 
+    public class Menu{
+
+        void showTeams(){
+
+        }
+
+        void showPlayers(Team team){
+
+        }
+
+        void showStats(Player player){
+
+        }
+
+    }
     public static void main(String[] args) {
 
 
