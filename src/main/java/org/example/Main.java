@@ -37,18 +37,18 @@ public class Main {
 
 
     // Variables
-    String name;
-    Integer wins;
-    Integer losses;
-    Integer gamesPlayed;
-    Integer pointsScoredTotal;
-    Integer pointsLostTotal;
-    Double pointsScoredPerGame;
-    Double pointsLostPerGame;
-    Double netDifference;
-    Double offensiveRating;
-    Double defensiveRating;
-    HashMap<String, Player> players = new HashMap<String, Player>();
+    private String name;
+    private Integer wins;
+    private Integer losses;
+    private Integer gamesPlayed;
+    private Integer pointsScoredTotal;
+    private Integer pointsLostTotal;
+    private Double pointsScoredPerGame;
+    private Double pointsLostPerGame;
+    private Double netDifference;
+    private Double offensiveRating;
+    private Double defensiveRating;
+    public HashMap<String, Player> players = new HashMap<String, Player>();
 
 
      public Team(){
@@ -174,7 +174,7 @@ public class Main {
          Double assists;
          Double blocks;
          Double steals;
-         String role;
+
 
 
 
@@ -187,17 +187,18 @@ public class Main {
              this.assists = -1.0;
              this.blocks = -1.0;
              this.steals = -1.0;
-             this.role = "";
+
          }
-         public Player(String name, String lastName, Double points, Double assists, Double blocks, Double steals, String role){
+         public Player(String name, String lastName, Double points, Double assists, Double blocks, Double steals){
              this.name = name;
              this.lastName = lastName;
              this.points = points;
              this.assists = assists;
              this.blocks = blocks;
              this.steals = steals;
-             this.role = role;
+
          }
+
 
 
 
@@ -209,10 +210,6 @@ public class Main {
 
          public void setLastName(String lastName){
              this.lastName = lastName;
-         }
-
-         public void setRole(String role){
-             this.role = role;
          }
 
          public void setPoints(Double points){
@@ -241,9 +238,6 @@ public class Main {
          public String getLastName(){
              return this.lastName;
          }
-         public String getRole(){
-             return this.role;
-         }
 
          public Double getPoints(){
              return this.points;
@@ -263,6 +257,113 @@ public class Main {
 
 
 
+         class Superstar extends Player {
+
+             Double roleModifier = 1.25;
+             public Superstar(String name, String lastName, Double points, Double assists, Double blocks, Double steals, Double roleModifier){
+                 super(name, lastName, points, assists, blocks, steals);
+                 this.roleModifier = roleModifier;
+             }
+
+             public void setRoleModifier(Double roleModifier){
+                 this.roleModifier = roleModifier;
+             }
+
+             public Double getRoleModifier(){
+                 return this.roleModifier;
+             }
+
+         }
+
+         class Star extends Player {
+
+             Double roleModifier = 1.1;
+             public Star(String name, String lastName, Double points, Double assists, Double blocks, Double steals, Double roleModifier){
+                 super(name, lastName, points, assists, blocks, steals);
+                 this.roleModifier = roleModifier;
+             }
+
+             public void setRoleModifier(Double roleModifier){
+                 this.roleModifier = roleModifier;
+             }
+
+             public Double getRoleModifier(){
+                 return this.roleModifier;
+             }
+
+         }
+
+         class Starter extends Player {
+
+             Double roleModifier = 1.0;
+             public Starter(String name, String lastName, Double points, Double assists, Double blocks, Double steals, Double roleModifier){
+                 super(name, lastName, points, assists, blocks, steals);
+                 this.roleModifier = roleModifier;
+             }
+
+             public void setRoleModifier(Double roleModifier){
+                 this.roleModifier = roleModifier;
+             }
+
+             public Double getRoleModifier(){
+                 return this.roleModifier;
+             }
+
+         }
+
+         class RolePlayer extends Player {
+
+             Double roleModifier = 1.0;
+             public RolePlayer(String name, String lastName, Double points, Double assists, Double blocks, Double steals, Double roleModifier){
+                 super(name, lastName, points, assists, blocks, steals);
+                 this.roleModifier = roleModifier;
+             }
+
+             public void setRoleModifier(Double roleModifier){
+                 this.roleModifier = roleModifier;
+             }
+
+             public Double getRoleModifier(){
+                 return this.roleModifier;
+             }
+
+         }
+         class SixthMan extends Player {
+
+             Double roleModifier = 0.9;
+             public SixthMan(String name, String lastName, Double points, Double assists, Double blocks, Double steals, Double roleModifier){
+                 super(name, lastName, points, assists, blocks, steals);
+                 this.roleModifier = roleModifier;
+             }
+
+             public void setRoleModifier(Double roleModifier){
+                 this.roleModifier = roleModifier;
+             }
+
+             public Double getRoleModifier(){
+                 return this.roleModifier;
+             }
+
+         }
+
+         class BenchPlayer extends  Player{
+             Double roleModifier = 0.8;
+             public BenchPlayer(String name, String lastName, Double points, Double assists, Double blocks, Double steals, Double roleModifier){
+                 super(name, lastName, points, assists, blocks, steals);
+                 this.roleModifier = roleModifier;
+             }
+
+             public void setRoleModifier(Double roleModifier){
+                 this.roleModifier = roleModifier;
+             }
+
+             public Double getRoleModifier(){
+                 return this.roleModifier;
+             }
+
+         }
+
+
      }
 
 
@@ -272,12 +373,15 @@ public class Main {
 
  class Tournament{
 
+    private Integer round;
+
     // Teams draw
     public ArrayList<Team> Draw(){
         ArrayList<Team> draw = new ArrayList<Team>();
 
         return draw;
     }
+
 
      class GameSimulator{
 
