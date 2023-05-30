@@ -12,8 +12,9 @@ public class Main {
      static class Menu{
 
         public static void showTeams(ArrayList<Team> teams){
+            int i=1;
             for( Team team : teams){
-                int i=1;
+
                 System.out.println(i + ". " + team.getName());
                 i=i+1;
             }
@@ -22,6 +23,7 @@ public class Main {
 
         public static void  showPlayers(Team team){
             int i=1;
+            System.out.println("Lp" + ". " + "Imie" + "  " + "Nazwisko" + "  " + "Punkty" + "  " +  "Asysty" + "  " + "Bloki" + "  " + "Przechwyty");
             for(Team.Player player : team.players){
                 System.out.println(i + ". " + player.getName() + "  " + player.getLastName() + "  " + player.getPoints() + "  " +  player.getAssists() + "  " + player.getBlocks() + "  " + player.getSteals());
                 i++;
@@ -31,6 +33,7 @@ public class Main {
 
 
         public static void showPlayer(Team.Player player){
+            System.out.println(player.getName() + "  " + player.getLastName() );
             System.out.println("1. Punkty: " + player.getPoints() );
             System.out.println("2. Asysty: " + player.getAssists());
             System.out.println("3. Bloki: " + player.getBlocks());
@@ -130,15 +133,265 @@ public class Main {
                 );
                 celtics.addPlayer(player);
             }
-            System.out.println(celtics.players.get(i).getName());
+
         }
 
         teams.add(celtics);
 
+        // Lakers
 
+        Team lakers = new Team("Lakers");
+        ArrayList<Team.Player> lakersPlayers = new ArrayList<Team.Player>();
+        String lakersFile = "D:\\Codeacademy\\Programowanie Obiektowe\\basketball-simulator\\src\\main\\java\\teams-data\\lakers.txt";
+        for(int i=0;i<7;i++){
+            reader.read(i,lakersFile);
+            if(Objects.equals(reader.role(), "Superstar")){
 
+                Team.Player player = new Team.Player.Superstar(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.2
+                );
+                lakers.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "Star")){
+                Team.Player player = new Team.Player.Star(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.1
+                );
+                lakers.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "Starter")){
+                Team.Player player = new Team.Player.Starter(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.0
+                );
+                lakers.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "RolePlayer")){
+                Team.Player player = new Team.Player.RolePlayer(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.9
+                );
+                lakers.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "SixthMan")){
+                Team.Player player = new Team.Player.SixthMan(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.8
+                );
+                lakers.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "BenchPlayer")){
+                Team.Player player = new Team.Player.BenchPlayer(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.7
+                );
+                lakers.addPlayer(player);
+            }
 
+        }
 
+        teams.add(lakers);
+
+        // Heat
+
+        Team heat = new Team("Heat");
+        ArrayList<Team.Player> heatPlayers = new ArrayList<Team.Player>();
+        String heatFile = "D:\\Codeacademy\\Programowanie Obiektowe\\basketball-simulator\\src\\main\\java\\teams-data\\heat.txt";
+        for(int i=0;i<7;i++){
+            reader.read(i,heatFile);
+            if(Objects.equals(reader.role(), "Superstar")){
+
+                Team.Player player = new Team.Player.Superstar(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.2
+                );
+                heat.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "Star")){
+                Team.Player player = new Team.Player.Star(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.1
+                );
+                heat.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "Starter")){
+                Team.Player player = new Team.Player.Starter(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.0
+                );
+                heat.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "RolePlayer")){
+                Team.Player player = new Team.Player.RolePlayer(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.9
+                );
+                heat.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "SixthMan")){
+                Team.Player player = new Team.Player.SixthMan(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.8
+                );
+                heat.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "BenchPlayer")){
+                Team.Player player = new Team.Player.BenchPlayer(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.7
+                );
+                heat.addPlayer(player);
+            }
+
+        }
+
+        teams.add(heat);
+
+        // Heat
+
+        Team nuggets = new Team("Nuggets");
+        ArrayList<Team.Player> nuggetsPlayers = new ArrayList<Team.Player>();
+        String nuggetsFile = "D:\\Codeacademy\\Programowanie Obiektowe\\basketball-simulator\\src\\main\\java\\teams-data\\nuggets.txt";
+        for(int i=0;i<7;i++){
+            reader.read(i,nuggetsFile);
+            if(Objects.equals(reader.role(), "Superstar")){
+
+                Team.Player player = new Team.Player.Superstar(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.2
+                );
+                nuggets.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "Star")){
+                Team.Player player = new Team.Player.Star(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.1
+                );
+                nuggets.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "Starter")){
+                Team.Player player = new Team.Player.Starter(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        1.0
+                );
+                nuggets.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "RolePlayer")){
+                Team.Player player = new Team.Player.RolePlayer(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.9
+                );
+                nuggets.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "SixthMan")){
+                Team.Player player = new Team.Player.SixthMan(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.8
+                );
+                nuggets.addPlayer(player);
+            }
+            if(Objects.equals(reader.role(), "BenchPlayer")){
+                Team.Player player = new Team.Player.BenchPlayer(
+                        reader.name(),
+                        reader.lastName(),
+                        reader.points(),
+                        reader.assists(),
+                        reader.blocks(),
+                        reader.steal(),
+                        0.7
+                );
+                nuggets.addPlayer(player);
+            }
+
+        }
+
+        teams.add(nuggets);
 
 
 
@@ -147,13 +400,19 @@ public class Main {
         // Menu
         System.out.println("-------NBA PLAYOFFS SIMULATOR-------");
         System.out.println("Wybierz druzyne ktorej sklad chcesz edytowac.");
-        Menu.showTeams(teams);
-        int inputContinue = 1;
+
+        boolean continueBool = true;
+        System.out.println("0. Rozpocznij symulacje.");
         while(true){
 
-            if(inputContinue == 1){
+            if(continueBool){
+                Menu.showTeams(teams);
                 int inputTeam = scan.nextInt() - 1;
+                if(inputTeam == -1){
+                    break;
+                }
                 Menu.showPlayers(teams.get(inputTeam));
+                System.out.println("Wybierz zawodnika ktorego statystyki chcesz edytowac.");
                 int inputPlayer = scan.nextInt() - 1;
                 Menu.showPlayer( teams.get(inputTeam).players.get(inputPlayer));
                 int inputStat = scan.nextInt();
@@ -183,18 +442,29 @@ public class Main {
             }
 
 
-
+            System.out.println("---------------------");
             System.out.println("1. Wyswietl druzyny.");
             System.out.println("2. Rozpocznij symulacje.");
 
-            inputContinue = scan.nextInt();
-
+            int inputContinue = scan.nextInt();
+            if(inputContinue == 1){
+                continueBool = true;
+            }
+            else{
+                break;
+            }
 
         }
 
+        Tournament tournament = new Tournament();
+        tournament.Draw(teams);
+        Tournament.GameSimulator gameSimulator = new Tournament.GameSimulator();
 
-
-
+        //System.out.println(heat.getOffensiveRating() + "   " + heat.getDefensiveRating() + " " + heat.getNetDifference());
+        //System.out.println(celtics.getOffensiveRating() + "   " + celtics.getDefensiveRating() + " " + celtics.getNetDifference() );
+        //System.out.println(lakers.getOffensiveRating() + "   " + lakers.getDefensiveRating()  + " " + lakers.getNetDifference());
+        //System.out.println(nuggets.getOffensiveRating() + "   " + nuggets.getDefensiveRating()  + " " + nuggets.getNetDifference()) ;
+        gameSimulator.getWinner(lakers, nuggets);
     }
 }
 
@@ -234,17 +504,26 @@ public class Main {
          this.name = name;
          this.wins = 0;
          this.losses = 0;
+         this.pointsScoredTotal = 0;
+         this.pointsLostTotal = 0;
      }
 
 
     // Methods used to calculate offensive and defensive potential of certain teams
 
     public void calculateOffensiveRating(){
-        this.offensiveRating = 0.1; //placeholder value
+        this.offensiveRating = 0.0;
+
+        for( Player player : players){
+            offensiveRating = offensiveRating + player.getPoints()  + player.getAssists()/2;
+        }
 
     }
     public void calculateDefensiveRating(){
-        this.defensiveRating = 0.1; //placeholder value
+        this.defensiveRating = 0.0;
+        for( Player player : players){
+            defensiveRating = defensiveRating + (player.getSteals() + player.getBlocks())*2.2;
+        }
 
     }
 
@@ -253,7 +532,9 @@ public class Main {
     }
 
     public void calculateNetDifference(){
-        this.netDifference = Math.abs(this.offensiveRating - this.defensiveRating);
+         calculateDefensiveRating();
+         calculateOffensiveRating();
+        this.netDifference = this.offensiveRating + this.defensiveRating;
     }
 
     public void calculatePointsScoredPerGame(){
@@ -311,16 +592,25 @@ public class Main {
         return this.losses;
     }
 
+    public int getPointsScoredTotal() {return this.pointsScoredTotal;}
+
+     public int getPointsLostTotal() {return this.pointsLostTotal;}
+
+
+
     public Double getOffensiveRating(){
-        return this.offensiveRating;
+         calculateOffensiveRating();
+         return this.offensiveRating;
     }
 
     public Double getDefensiveRating(){
-        return this.defensiveRating;
+         calculateDefensiveRating();
+         return this.defensiveRating;
     }
 
     public Double getNetDifference(){
-        return this.netDifference;
+         calculateNetDifference();
+         return this.netDifference;
     }
 
 
@@ -374,11 +664,11 @@ public class Main {
                  return Double.parseDouble(this.array[3]);
              }
 
-             public Double blocks() {
-                 return Double.parseDouble(this.array[4]);
-             }
+            public Double assists() {
+             return Double.parseDouble(this.array[4]);
+         }
 
-             public Double assists() {
+             public Double blocks() {
                  return Double.parseDouble(this.array[5]);
              }
 
@@ -599,17 +889,18 @@ public class Main {
 
  class Tournament{
 
-    private Integer round;
+    private Integer round = 1;
 
     // Teams draw
-    public ArrayList<Team> Draw(){
-        ArrayList<Team> draw = new ArrayList<Team>();
-
-        return draw;
+    public void Draw(ArrayList<Team> teams){
+        Collections.shuffle(teams);
+        System.out.println("Runda " + round);
+        System.out.println(teams.get(0).getName() + " vs " + teams.get(1).getName());
+        System.out.println(teams.get(2).getName() + " vs " + teams.get(3).getName());
     }
 
 
-     class GameSimulator{
+     static class GameSimulator{
 
          public Double firstTeamRandomMultiplier;
          public Double secondTeamRandomMultiplier;
@@ -618,27 +909,84 @@ public class Main {
          public Integer secondTeamPointsScored;
          public void calculateFirstTeamRandomMultiplier(){
              Random random = new Random();
-             this.firstTeamRandomMultiplier = 0.8 + (1.1 - 0.8) * random.nextDouble();
+             firstTeamRandomMultiplier = 0.9 + (1.05 - 0.95) * random.nextDouble();
 
          }
 
          public void calculateSecondTeamRandomMultiplier(){
              Random random = new Random();
-             secondTeamRandomMultiplier = 0.8 + (1.1 - 0.8) * random.nextDouble();
+             secondTeamRandomMultiplier = 0.9 + (1.05 - 0.95) * random.nextDouble();
 
          }
 
          public Integer getFirstTeamPointsScored(){
-             return this.firstTeamPointsScored;
+             return firstTeamPointsScored;
          }
 
          public Integer getSecondTeamPointsScored(){
-             return this.secondTeamPointsScored;
+             return secondTeamPointsScored;
          }
 
          public boolean getWinner(Team One, Team Two){
              boolean winner=true;
+
+             calculateFirstTeamRandomMultiplier();
+             calculateSecondTeamRandomMultiplier();
+
+
+             One.calculateOffensiveRating();
+             One.calculateNetDifference();
+             One.calculateNetDifference();
+
+
+             Two.calculateOffensiveRating();
+             Two.calculateDefensiveRating();
+             Two.calculateNetDifference();
+
+
+
+             firstTeamPointsScored = (int) Math.ceil(One.getNetDifference()  * firstTeamRandomMultiplier - Two.getDefensiveRating());
+             secondTeamPointsScored = (int) Math.ceil(Two.getNetDifference() * secondTeamRandomMultiplier - One.getDefensiveRating());
+             One.addPointsScoredTotal(firstTeamPointsScored);
+             One.addPointsLostTotal(secondTeamPointsScored);
+             Two.addPointsScoredTotal(secondTeamPointsScored);
+             Two.addPointsLostTotal(firstTeamPointsScored);
+
+
+             System.out.println(firstTeamPointsScored + " : " + secondTeamPointsScored );
+             System.out.println(firstTeamRandomMultiplier + " " + secondTeamRandomMultiplier);
+
+
+
              // Conditional
+
+             if(firstTeamPointsScored > secondTeamPointsScored )
+             {
+                 return winner;
+             }
+
+
+             if(firstTeamPointsScored.equals(secondTeamPointsScored)){
+                 Random random = new Random();
+                 int randomInt = random.nextInt(100) + 1;
+                 if(randomInt % 2 == 0){
+                     winner = true;
+                     return winner;
+                 }
+                 else{
+                     winner = false;
+                     return winner;
+                 }
+             }
+
+
+             if(firstTeamPointsScored < secondTeamPointsScored)
+             {
+                 winner = false;
+                 return winner;
+             }
+
+
              return winner;
          }
 
